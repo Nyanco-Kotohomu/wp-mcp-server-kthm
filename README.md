@@ -61,6 +61,20 @@ AIエージェントと連携するためのMCPサーバー機能をWordPressに
 3.  後述のOpenAPIスキーマを「Schema」の欄に貼り付け、`servers`の`url`をあなたのサイトのURLに書き換えます。
 4.  認証設定（Authentication）では、`Authentication Type`として`API Key`を選択し、`Auth Type`を`Bearer`に設定します。`API Key`の欄には、このプラグインで生成した「秘密のトークン」を貼り付けます。（**注**: GPTsのBearer認証は、私たちのリクエスト署名とは直接互換性がないため、GPTsがAPIを呼び出すためのプロキシや中間サーバーが必要になる場合があります。）
 
+### Google Workspace Gemini との連携 (上級者向け)
+
+Google Workspace環境でGeminiにこのプラグインを使わせる場合、組織のセキュリティポリシーにより、外部APIへの直接接続が制限されていることがあります。その場合、**Google Apps Script**を中間サーバー（プロキシ）として利用するのが、最も安全で推奨される方法です。
+
+1.  **Google Apps Scriptの準備**:
+    * 新しいApps Scriptプロジェクトを作成します。
+    * Apps Script内に、Geminiから呼び出される関数（例: `inquireToKotohomu`）を作成します。
+    * その関数の中で、`UrlFetchApp`サービスを使い、私たちのプラグインのAPI (`/inquiry`) を呼び出す処理を記述します。タイムスタンプの生成や署名の計算も、すべてこのApps Script内で行います。
+2.  **Gemini (Workspace) の設定**:
+    * Geminiのツール設定で、「Apps Script」をツールとして選択します。
+    * 上記で作成したApps Scriptのプロジェクトと関数を、Geminiが利用できるツールとして登録します。
+
+この方法により、認証情報（秘密のトークン）をGoogleのインフラ内で安全に管理しつつ、Geminiに外部の機能を実行させることが可能になります。
+
 ---
 ### OpenAPI スキーマ (共通)
 
