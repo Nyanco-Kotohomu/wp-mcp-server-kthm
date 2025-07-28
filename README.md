@@ -50,3 +50,6 @@ AIからのリクエストを受け付け、Ninja Formsに安全に問い合わ�
 
 ■開発者 (Author)
 ことほむ LLC
+
+■GitHub
+https://github.com/Nyanco-Kotohomu/wp-mcp-server-kthm
