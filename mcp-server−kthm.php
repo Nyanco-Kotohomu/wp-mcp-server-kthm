@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:       MCP Server for WordPress
- * Plugin URI:        https://example.com/
+ * Plugin URI:        https://github.com/Nyanco-Kotohomu/wp-mcp-server-kthm
  * Description:       AIエージェントと連携するためのMCPサーバー機能を提供します。
- * Version:           3.0.0 (Refactored)
- * Author:            (あなたの名前)
- * Author URI:        https://example.com/
- * License:           GPL v2 or later
+ * Version:           0.5.0 (Refactored)
+ * Author:            KOTOHOMU.LLC
+ * Author URI:        https://kotohomu.com/
+ * License:           GPL v3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       mcp-server
  */
